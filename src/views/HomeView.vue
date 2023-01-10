@@ -1,12 +1,11 @@
 <script setup>
-import HeaderPage from "../components/HeaderPage.vue";
-import FooterPage from "../components/FooterPage.vue";
+
 import PokemonCards from "../components/PokemonCards.vue";
 
 import { onBeforeMount } from "vue";
-import { usepokemonstore } from "../stores/store.js";
+import { usePokemonStore } from "../stores/store.js";
 
-const pokemonsStore = usepokemonstore();
+const pokemonsStore = usePokemonStore();
 
 onBeforeMount(() => {
   getPokemons();
@@ -19,16 +18,15 @@ const getPokemons = async () => {
 </script>
 
 <template>
-  <HeaderPage />
+  
   <main>
     <PokemonCards
-      v-for="pokemon in pokemonsStore.pokemons.slice(148, 168)"
-      :key="pokemon.id"
-      :pokemon="pokemon"
+      v-for="pokemon in pokemonsStore.pokemons"
+      name= pokemon.results.name
+      
     />
   </main>
 
-  <FooterPage />
 </template>
 
 <style lang="scss">
@@ -46,9 +44,7 @@ main {
 
 @media (max-width: 1500px) {
   body {
-    background-image: url(@/assets/FondoHome3.png);
-    background-size: 140%;
-    background-position: 48% 10%;
+    background-color: red;
   }
 }
 
