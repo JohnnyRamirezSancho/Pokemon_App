@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: auto;
+    font-family: Ubuntu¡, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    position: relative;
+    aspect-ratio: 3.91 / 1;
+    min-width: 360px;
+}
+
+footer {
+    max-width: 900px;
+    height: 65px;
+    background: #2970FE;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
