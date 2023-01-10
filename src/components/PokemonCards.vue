@@ -1,48 +1,48 @@
 <template>
     <div class="card__container">
       <figure class="card__img">
-        <img :src="heroe.images.lg" alt="heroe" />
+        <img :src="pokemon.images.lg" alt="pokemon" />
         <i
           class="fa-regular fa-heart icon-heart"
-          v-on:click="sendHeroeFavorite()"
+          v-on:click="sendPokemonFavorite()"
         ></i>
       </figure>
       <div class="card__properties">
-        <p class="properties__name">{{ heroe.name }}</p>
+        <p class="properties__name">{{ pokemon.name }}</p>
         <div class="properties__container">
           <p class="properties__property properties__property-power">
             <i class="fa-solid fa-hand-back-fist"></i>
-            {{ heroe.powerstats.power }}
+            {{ pokemon.powerstats.power }}
           </p>
           <p class="properties__property properties__property-speed">
             <i class="fa-solid fa-person-running"></i>
-            {{ heroe.powerstats.speed }}
+            {{ pokemon.powerstats.speed }}
           </p>
           <p class="properties__property properties__property-strength">
             <i class="fa-solid fa-shield"></i>
-            {{ heroe.powerstats.strength }}
+            {{ pokemon.powerstats.strength }}
           </p>
         </div>
       </div>
     </div>
   </template>
   <script setup>
-  import { useHeroeFavoriteStore } from "@/stores/storeFavorites";
+  import { usePokemonDetailStore } from "@/stores/storeFavorites";
   import { ref } from "vue";
   
-  const favoriteStore = useHeroeFavoriteStore();
+  const detailStore = usePokemonDetailStore();
   
   const props = defineProps({
-    heroe: {
+    pokemon: {
       type: Object,
     },
   });
   
-  const heroe1 = ref({});
+  const pokemon1 = ref({});
   
-  const sendHeroeFavorite = () => {
-    favoriteStore.showHeroes(props.heroe);
-    alert("Se ha añadido un nuevo heroe a tu lista de favoritos");
+  const sendPokemonFavorite = () => {
+    detailStore.showPokemons(props.pokemon);
+    alert("Se ha añadido un nuevo pokemon a tu lista de favoritos");
   };
   </script>
   

@@ -1,16 +1,16 @@
 import { defineStore } from "pinia";
 
-export const useHeroeStore = defineStore({
-  id: "heroes",
+export const usePokemonStore = defineStore({
+  id: "pokemons",
   state: () => ({
-    heroes: [],
+    pokemons: [],
   }),
   actions: {
-    async fetchHeroes() {
+    async fetchPokemons() {
       await fetch("https://pokeapi.co/api/v2/pokemon")
         .then((response) => response.json())
         .then((data) => {
-          this.heroes = data;
+          this.pokemons = data;
         })
         .catch((err) => {
           console.log(err);
