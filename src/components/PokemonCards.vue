@@ -1,39 +1,26 @@
 <template>
     <div class="card__container">
       <figure class="card__img">
-        <img :src="pokemon.images.lg" alt="pokemon" />
+       
         <i
           class="fa-regular fa-heart icon-heart"
           v-on:click="sendPokemonFavorite()"
         ></i>
       </figure>
-      <div class="card__properties">
-        <p class="properties__name">{{ pokemon.name }}</p>
-        <div class="properties__container">
-          <p class="properties__property properties__property-power">
-            <i class="fa-solid fa-hand-back-fist"></i>
-            {{ pokemon.powerstats.power }}
-          </p>
-          <p class="properties__property properties__property-speed">
-            <i class="fa-solid fa-person-running"></i>
-            {{ pokemon.powerstats.speed }}
-          </p>
-          <p class="properties__property properties__property-strength">
-            <i class="fa-solid fa-shield"></i>
-            {{ pokemon.powerstats.strength }}
-          </p>
+        <div class="card__properties">
+        {{ name }}
         </div>
-      </div>
+      
     </div>
   </template>
   <script setup>
-  import { usePokemonDetailStore } from "@/stores/storeFavorites";
+  import { usePokemonDetailStore } from "@/stores/detailStore.js";
   import { ref } from "vue";
   
   const detailStore = usePokemonDetailStore();
   
   const props = defineProps({
-    pokemon: {
+    name: {
       type: Object,
     },
   });
