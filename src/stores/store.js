@@ -17,5 +17,17 @@ export const usePokemonStore = defineStore({
         })
     },
   },
+
+  async fetchOnePokemon(url) {
+    await fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        this.pokemonAsk = data;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  },
+
 });
 

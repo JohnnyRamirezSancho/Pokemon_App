@@ -8,7 +8,7 @@
         ></i>
       </figure>
         <div class="card__properties">
-        {{ name }}
+        {{ name.name }}
         </div>
       
     </div>
@@ -23,6 +23,9 @@
     name: {
       type: Object,
     },
+    url: {
+      type: Object,
+    }
   });
   
   const pokemon1 = ref({});

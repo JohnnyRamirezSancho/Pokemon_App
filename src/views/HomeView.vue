@@ -1,32 +1,35 @@
 <script setup>
-
 import PokemonCards from "../components/PokemonCards.vue";
-
 import { onBeforeMount } from "vue";
 import { usePokemonStore } from "../stores/store.js";
 
 const pokemonsStore = usePokemonStore();
-
 onBeforeMount(() => {
   getPokemons();
+  getOnePokemon(url);
+
 });
 
 // METHODS
 const getPokemons = async () => {
   await pokemonsStore.fetchPokemons();
 };
+
+const getOnePokemon = async () => {
+  await pokemonAsk.fetchOnePokemon(url);
+};
+
 </script>
 
 <template>
   
   <main>
     <PokemonCards
-      v-for="pokemon in pokemonsStore.pokemons"
-      name= pokemon.results.name
-      
-    />
+      v-for="pokemon in pokemonsStore.pokemons.results"
+      :name= pokemon 
+      :url= pokemon
+        />
   </main>
-
 </template>
 
 <style lang="scss">
