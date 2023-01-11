@@ -9,21 +9,29 @@ const props = defineProps({
 <template>
     <div class="card__container">
       <figure class="card__img">
-       
-        <i
-          class="fa-regular fa-heart icon-heart"
-          v-on:click="sendPokemonFavorite()"
-        ></i>
+        <img :src="pokemonObj.sprites.front_default">
       </figure>
         <div class="card__properties">
           <p>{{ pokemonObj.name }}</p>
-          <p v-for="(type) in pokemonObj.types">{{ type }} </p>
+          <p v-for="(type) in pokemonObj.types" :class="type.type.name">{{ type.type.name }} </p>
         </div>
       
     </div>
   </template>
   
   <style lang="scss" scoped>
+
+.poison {
+    background-color: aqua;
+  }
+
+  .grass {
+    background-color: green;
+  }
+
+  .fire {
+    background-color: red;
+  }
   .card__container {
     display: flex;
     flex-direction: column;

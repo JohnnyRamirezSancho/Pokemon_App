@@ -38,11 +38,6 @@ main {
   gap: 1em;
 }
 
-@media (max-width: 1500px) {
-  body {
-    background-color: red;
-  }
-}
 
 @media (max-width: 1200px) {
   main {
