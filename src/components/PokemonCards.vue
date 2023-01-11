@@ -1,3 +1,27 @@
+<script setup>
+import { onBeforeMount } from "vue";
+import { usePokemonStore } from "../stores/store.js";
+import { ref } from "vue";
+
+// const pokemonsStore = usePokemonStore();
+// onBeforeMount(() => {
+//   getOnePokemon();
+// });
+
+const getOnePokemon = async () => {
+  await pokemonsStore.fetchOnePokemon(name.url);
+};
+
+const props = defineProps({
+  name: {
+    type: Object,
+  }
+});
+
+const url = ref(name.url);
+
+</script>
+
 <template>
     <div class="card__container">
       <figure class="card__img">
@@ -8,30 +32,12 @@
         ></i>
       </figure>
         <div class="card__properties">
-        {{ name }}
+          <p>{{ name.name }}</p>
+          <p>{{ name.url }}</p>
         </div>
       
     </div>
   </template>
-  <script setup>
-  import { usePokemonDetailStore } from "@/stores/detailStore.js";
-  import { ref } from "vue";
-  
-  const detailStore = usePokemonDetailStore();
-  
-  const props = defineProps({
-    name: {
-      type: Object,
-    },
-  });
-  
-  const pokemon1 = ref({});
-  
-  const sendPokemonFavorite = () => {
-    detailStore.showPokemons(props.pokemon);
-    alert("Se ha añadido un nuevo pokemon a tu lista de favoritos");
-  };
-  </script>
   
   <style lang="scss" scoped>
   .card__container {

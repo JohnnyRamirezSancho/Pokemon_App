@@ -1,12 +1,9 @@
 <script setup>
-
 import PokemonCards from "../components/PokemonCards.vue";
-
 import { onBeforeMount } from "vue";
 import { usePokemonStore } from "../stores/store.js";
 
 const pokemonsStore = usePokemonStore();
-
 onBeforeMount(() => {
   getPokemons();
 });
@@ -15,18 +12,17 @@ onBeforeMount(() => {
 const getPokemons = async () => {
   await pokemonsStore.fetchPokemons();
 };
+
 </script>
 
 <template>
   
   <main>
     <PokemonCards
-      v-for="pokemon in pokemonsStore.pokemons"
-      name= pokemon.results.name
-      
-    />
+      v-for="pokemon in pokemonsStore.pokemons.results"
+      :name= pokemon 
+        />
   </main>
-
 </template>
 
 <style lang="scss">
