@@ -1,25 +1,9 @@
 <script setup>
-import { onBeforeMount } from "vue";
-import { usePokemonStore } from "../stores/store.js";
-import { ref } from "vue";
-
-// const pokemonsStore = usePokemonStore();
-// onBeforeMount(() => {
-//   getOnePokemon();
-// });
-
-const getOnePokemon = async () => {
-  await pokemonsStore.fetchOnePokemon(name.url);
-};
-
 const props = defineProps({
-  name: {
+  pokemonObj: {
     type: Object,
   }
 });
-
-const url = ref(name.url);
-
 </script>
 
 <template>
@@ -32,8 +16,8 @@ const url = ref(name.url);
         ></i>
       </figure>
         <div class="card__properties">
-          <p>{{ name.name }}</p>
-          <p>{{ name.url }}</p>
+          <p>{{ pokemonObj.name }}</p>
+          <p v-for="(type) in pokemonObj.types">{{ type }} </p>
         </div>
       
     </div>

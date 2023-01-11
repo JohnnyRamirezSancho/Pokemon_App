@@ -7,27 +7,17 @@ export const usePokemonStore = defineStore({
   }),
   actions: {
     async fetchPokemons() {
-      await fetch("https://pokeapi.co/api/v2/pokemon")
-        .then((response) => response.json())
-        .then((data) => {
-          this.pokemons = data;
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+      for(let index=1; index<=12; index++){
+        await fetch("https://pokeapi.co/api/v2/pokemon/" + index)
+          .then((response) => response.json())
+          .then((data) => {
+            this.pokemons.push(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      }
     },
-  },
-
-  async fetchOnePokemon(url) {
-    await fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        this.pokemonAsk = data;
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  },
-
+  }
 });
 

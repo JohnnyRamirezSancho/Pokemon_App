@@ -19,8 +19,8 @@ const getPokemons = async () => {
   
   <main>
     <PokemonCards
-      v-for="pokemon in pokemonsStore.pokemons.results"
-      :name= pokemon 
+      v-for="pokemon in pokemonsStore.pokemons"
+      :pokemonObj = pokemon 
         />
   </main>
 </template>
