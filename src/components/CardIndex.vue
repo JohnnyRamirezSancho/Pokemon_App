@@ -1,71 +1,19 @@
 <script setup>
-//   import StarsEvaluationVue from './StarsEvaluation.vue';
-//   import { addFavourites } from '@/stores/favouritesList';
-//   import FileVue from './File.vue';
-//   import { favouritesList } from '../stores/favouritesList';
-//   import { useFavouritesList } from '../stores/favouritesList';
-//   import { onBeforeMount, ref } from 'vue';
-  
-//   const favouritesStore = useFavouritesList()
-  
-//   onBeforeMount(() => {
-//     getFavourites()
-//   })
-  
-//   const getFavourites = async () => {
-//     await favouritesStore.fetchFavourites()
-//   }
-  
-//   function deleteFavourite(favourite) {
-//     let index = favouritesList.indexOf(favourite);
-//     if (confirm("Are you sure you want to remove " + favourite.name + " from Favorites?")) {
-//       alert(favourite.name + " has been removed.")
-//       favouritesList.splice(index, 1);
-//       favouritesList[0].name += " ";
-//     }
-//   }
-  
-//   function showFileHero(id) {
-//     const visorFile = document.getElementById(id)
-//     visorFile.classList.remove('invisible')
-//   }
-  
-//   const props = defineProps({
-//     id: {
-//       type: Number,
-//       default: 0
-//     },
-//     name: {
-//       type: String,
-//       default: null
-//     },
-//     images: {
-//       type: Object,
-//       default: null
-//     },
-//     powerstats: {
-//       type: Object,
-//       default: null
-//     },
-//     heroe: {
-//       type: Object,
-//       default: null
-//     },
-//     stars: {
-//       type: Number,
-//       default: 0
-//     }
-//   })
-  </script>
+const props = defineProps({
+  pokemonObj: {
+    type: Object,
+  }
+});
+</script>
   
   <template>
     <li>
       <figure>
-        <img src="../assets/img/pokemon-header.png" alt="Pokemon">
+        <img :src="pokemonObj.sprites.front_default">
       </figure>
       <div class="contentPokemon">
-        <h3>Bulbasaur</h3>
-        <p>Cosas</p>
+        <h3>{{ pokemonObj.name }}</h3>
+        <p v-for="(type) in pokemonObj.types">{{ type.type.name }} </p>
       </div>
     </li>
   </template>
