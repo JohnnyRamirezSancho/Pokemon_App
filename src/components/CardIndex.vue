@@ -13,7 +13,7 @@ const props = defineProps({
       </figure>
       <div class="contentPokemon">
         <h3>{{ pokemonObj.name }}</h3>
-        <p v-for="(type) in pokemonObj.types">{{ type.type.name }} </p>
+        <p v-for="(type) in pokemonObj.types" :class="type.type.name">{{ type.type.name }} </p>
       </div>
     </li>
   </template>
@@ -29,6 +29,7 @@ const props = defineProps({
   
   li:hover {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
   }
   
   img {
@@ -52,6 +53,18 @@ const props = defineProps({
     padding: 4px 0;
   }
   
+  .poison {
+  background-color: aqua;
+}
+
+.grass {
+  background-color: green;
+}
+
+.fire {
+  background-color: red;
+}
+
   @media (max-width:500px) {
     li {
       border: none;

@@ -15,6 +15,10 @@ const props = defineProps({
 </template>
 
 <style scoped>
+header {
+  position: relative;
+}
+
 img {
     width: 100%;
     position: absolute;
