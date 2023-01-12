@@ -1,6 +1,5 @@
 <script setup>
 import CardIndexVue from '../components/CardIndex.vue'
-import PokemonCards from "../components/PokemonCards.vue";
 import { onBeforeMount } from "vue";
 import { usePokemonStore } from "../stores/store.js";
 
@@ -13,11 +12,9 @@ onBeforeMount(() => {
 const getPokemons = async () => {
   await pokemonsStore.fetchPokemons();
 };
-
 </script>
 
 <template>
-  
   <main>
     <h2>POKEMONS</h2>
     <div id="filtersAndSearch">
@@ -32,18 +29,11 @@ const getPokemons = async () => {
       </select>
     </div>
     <ul>
-      <CardIndexVue />
-      <CardIndexVue />
-      <CardIndexVue />
-      <CardIndexVue />
-      <CardIndexVue />
-      <CardIndexVue />
-      <CardIndexVue />
-    </ul>
-    <PokemonCards
+      <CardIndexVue
       v-for="pokemon in pokemonsStore.pokemons"
       :pokemonObj = pokemon 
         />
+    </ul>
   </main>
 </template>
 
