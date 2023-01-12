@@ -141,10 +141,3 @@ option {
   }
 }
 </style>
-    <PokemonCards
-      v-for="pokemon in pokemonsStore.pokemons"
-      :pokemonObj = pokemon 
-        />
-  </main>
-</template>
-
