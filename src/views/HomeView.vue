@@ -25,36 +25,3 @@ const getPokemons = async () => {
   </main>
 </template>
 
-<style lang="scss">
-main {
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 60%;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  gap: 1em;
-}
-
-@media (max-width: 1500px) {
-  body {
-    background-color: red;
-  }
-}
-
-@media (max-width: 1200px) {
-  main {
-    width: 80%;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 400px) {
-  main {
-    width: 80%;
-    grid-template-columns: 1fr;
-  }
-}
-</style>
