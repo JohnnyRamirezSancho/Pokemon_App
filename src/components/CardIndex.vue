@@ -1,4 +1,6 @@
 <script setup>
+import { RouterLink } from 'vue-router'
+
 const props = defineProps({
   pokemonObj: {
     type: Object,
@@ -7,9 +9,12 @@ const props = defineProps({
 </script>
   
   <template>
+    
     <li>
       <figure>
+      <RouterLink to="/pokemonview">
         <img :src="pokemonObj.sprites.front_default">
+      </RouterLink>
       </figure>
       <div class="contentPokemon">
         <h3>{{ pokemonObj.name }}</h3>
