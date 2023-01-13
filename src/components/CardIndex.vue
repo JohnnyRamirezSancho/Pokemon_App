@@ -1,25 +1,29 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import FileVue from './File.vue';
 
 const props = defineProps({
   pokemonObj: {
     type: Object,
   }
 });
+
+function showFileHero(id) {
+  const visorFile = document.getElementById(id)
+  visorFile.classList.remove('invisible')
+}
 </script>
   
   <template>
     
     <li>
       <figure>
-      <RouterLink to="/pokemonview">
-        <img :src="pokemonObj.sprites.front_default">
-      </RouterLink>
+        <img :src="pokemonObj.sprites.front_default"  @click="showFileHero(pokemonObj.name)">
       </figure>
       <div class="contentPokemon">
         <h3>{{ pokemonObj.name }}</h3>
         <p v-for="(type) in pokemonObj.types" :class="type.type.name">{{ type.type.name }} </p>
       </div>
+      <FileVue :id="pokemonObj.name" :pokemon="pokemonObj"></FileVue>
     </li>
   </template>
   
