@@ -44,17 +44,18 @@ const getPokemons = async () => {
 <style scoped>
 main {
   padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 h2 {
   font-weight: normal;
   font-size: 48px;
   padding-left: 10px;
-  margin-bottom: 20px;
   display: grid;
   align-items: flex-end;
+  margin-bottom: 20px;
 }
-
 input,
 select,
 option {
