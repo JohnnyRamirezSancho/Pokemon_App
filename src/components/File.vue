@@ -2,17 +2,17 @@
 const props = defineProps({
   pokemon: {
     type: Object,
-    default: null
+    default: null,
   },
   id: {
     type: String,
-    default: null
-  }
-})
+    default: null,
+  },
+});
 
 function goInvisible(id) {
   const visor = document.getElementById(id);
-  visor.classList.add("invisible")
+  visor.classList.add("invisible");
 }
 </script>
 
@@ -20,13 +20,18 @@ function goInvisible(id) {
   <div :id="id" class="invisible visor">
     <div class="fileDetails">
       <button @click="goInvisible(id)">X</button>
-      <img :src="pokemon.sprites.front_default" :alt="pokemon.name">
+      <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
       <div class="pokemonInformation">
         <h4>{{ pokemon.name }}</h4>
-        <p v-for="(type) in pokemon.types">{{ type.type.name }}</p>
-     </div>  
-    </div>  
-  </div>    
+        <h5 class="specie">Specie:</h5>
+        <p>{{ pokemon.species.name }}</p>
+        <h5 class="types">Type:</h5>
+        <p v-for="clase in pokemon.types" :class="clase.type.name">{{ clase.type.name }}</p>
+        <h5 class="stats">Stat:</h5>
+        <p v-for="stat in pokemon.stats">{{ stat.stat.name }}</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -38,7 +43,7 @@ function goInvisible(id) {
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: 10000git ad1;
+  z-index: 10001;
   position: fixed;
 }
 
@@ -88,19 +93,61 @@ button:hover {
 
 h4 {
   font-size: 24px;
-  color: #ff9801;
-  font-family: "Zen DOts";
+  color: #2970fe;
+  text-transform: capitalize;
+  margin-bottom: 25px;
 }
 
-h4 span {
-  font-family: "Roboto";
-  font-size: 16px;
+h5 {
+  margin-top: 10px;
+  font-size: 20px;
   font-weight: normal;
-  color: #000000;
-  font-style: italic;
+  font-style: oblique;
+  text-transform: capitalize;
 }
 
-@media (max-width:900px) {
+h5 ~ p {
+  width: 200px;
+  margin: 10px 30px;
+  background: #ccc;
+  text-align: center;
+  border-radius: 10px;
+  padding: 4px 0;
+}
+
+h5.types ~ p.grass {
+  background: #9bcc50;
+}
+h5.types ~ p.poison {
+  background: #b97fc9;
+}
+h5.types ~ p.fire {
+  background: #fd7d24;
+}
+h5.types ~ p.water {
+  background: #4592c4;
+}
+h5.types ~ p.flying {
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+}
+h5.types ~ p.bug {
+  background: #729f3f;
+}
+/* Normal: #a4acaf
+Eléctrico: #eed535
+Hada: fdb9e9
+Lucha: #d56723
+Psíquico: #f366b9
+Roca: #a38c21
+Hielo: #51c4e7
+Fantasma: #7b62a3
+Acero: #9eb7b8
+Siniestro: #707070
+
+Tierra: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%)
+Dragón: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%) */
+
+@media (max-width: 1264px) {
   .fileDetails {
     flex-direction: column;
     overflow: auto;

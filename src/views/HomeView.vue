@@ -22,10 +22,13 @@ const getPokemons = async () => {
         <input type="text" id="searchPokemon">
       </div>
       <select id="PokemonType">
-        <option vale="uno">Select a pokemon type</option>
-        <option vale="dos">Dos</option>
-        <option vale="tres">Tres</option>
-        <option vale="cuatro">Cuatro</option>
+        <option vale="all">All pokemon's type</option>
+        <option vale="bug">Bug</option>
+        <option vale="fire">Fire</option>
+        <option vale="flying">Flying</option>
+        <option vale="grass">Grass</option>
+        <option vale="poison">Poison</option>
+        <option vale="water">Water</option>
       </select>
     </div>
     <ul>
@@ -40,25 +43,16 @@ const getPokemons = async () => {
 <style scoped>
 main {
   padding: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 h2 {
   font-weight: normal;
+  width: 50%;
   font-size: 48px;
   padding-left: 10px;
+  margin-bottom: 20px;
   display: grid;
   align-items: flex-end;
-  margin-bottom: 20px;
-}
-
-ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 25px;
-  list-style: none;
-  grid-column: 1 / 3;
 }
 
 input,
@@ -95,6 +89,14 @@ option {
   right: 15px
 }
 
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  list-style: none;
+}
+
+
 @media (max-width:900px) {
   ul {
     grid-template-columns: 1fr 1fr 1fr;
@@ -104,7 +106,6 @@ option {
 @media (max-width:700px) {
   ul {
     grid-template-columns: 1fr 1fr;
-    grid-column: 1 / 2;
   }
 
   main {
