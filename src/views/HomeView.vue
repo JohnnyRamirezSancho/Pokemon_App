@@ -12,6 +12,11 @@ onBeforeMount(() => {
 const getPokemons = async () => {
   await pokemonsStore.fetchPokemons();
 };
+
+function selectPokemonsByType() {
+  const pokemonType = document.getElementById("pokemonType").value;
+  pokemonsStore.fetchPokemonsForType(pokemonType);
+}
 </script>
 
 <template>
@@ -22,7 +27,7 @@ const getPokemons = async () => {
         <a href="#"><img src="../assets/img/icon-search.png" alt="Search" id="iconSearch"></a>
         <input type="text" id="searchPokemon" />
       </div>
-      <select id="PokemonType">
+      <select id="pokemonType" @change="selectPokemonsByType">
         <option value="all">All pokemon's type</option>
         <option value="bug">Bug</option>
         <option value="fire">Fire</option>
