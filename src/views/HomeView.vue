@@ -56,6 +56,7 @@ h2 {
   align-items: flex-end;
   margin-bottom: 20px;
 }
+
 input,
 select,
 option {
@@ -95,6 +96,7 @@ ul {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
   list-style: none;
+  grid-column: 1 / 3;
 }
 
 @media (max-width: 900px) {
