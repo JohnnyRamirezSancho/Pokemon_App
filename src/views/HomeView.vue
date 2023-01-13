@@ -23,13 +23,13 @@ const getPokemons = async () => {
         <input type="text" id="searchPokemon" />
       </div>
       <select id="PokemonType">
-        <option vale="all">All pokemon's type</option>
-        <option vale="bug">Bug</option>
-        <option vale="fire">Fire</option>
-        <option vale="flying">Flying</option>
-        <option vale="grass">Grass</option>
-        <option vale="poison">Poison</option>
-        <option vale="water">Water</option>
+        <option value="all">All pokemon's type</option>
+        <option value="bug">Bug</option>
+        <option value="fire">Fire</option>
+        <option value="flying">Flying</option>
+        <option value="grass">Grass</option>
+        <option value="poison">Poison</option>
+        <option value="water">Water</option>
       </select>
     </div>
     <ul>

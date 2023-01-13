@@ -33,10 +33,7 @@ li {
   overflow: hidden;
   transition: all 0.4s;
 }
-li:has(img:hover) {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.5);
-}
+
 
 img {
   width: 100%;
