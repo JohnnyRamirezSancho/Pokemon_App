@@ -16,7 +16,9 @@ const props = defineProps({
 
 <style scoped>
 header {
-  position: relative;
+    position: relative;
+    aspect-ratio: 3.91 / 1;
+    min-width: 360px;
 }
 
 img {

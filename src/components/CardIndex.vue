@@ -16,16 +16,11 @@ function showFileHero(id) {
 <template>
   <li>
     <figure>
-      <img
-        :src="pokemonObj.sprites.front_default"
-        @click="showFileHero(pokemonObj.name)"
-      />
+      <img :src="pokemonObj.sprites.front_default" @click="showFileHero(pokemonObj.name)">
     </figure>
     <div class="contentPokemon">
       <h3>{{ pokemonObj.name }}</h3>
-      <p v-for="clase in pokemonObj.types" :class="clase.type.name">
-        {{ clase.type.name }}
-      </p>
+      <p v-for="clase in pokemonObj.types" :class="clase.type.name">{{ clase.type.name }}</p>
     </div>
     <FileVue :id="pokemonObj.name" :pokemon="pokemonObj"></FileVue>
   </li>
@@ -38,6 +33,10 @@ li {
   overflow: hidden;
   transition: all 0.4s;
 }
+li:has(img:hover) {
+  transform: scale(1.1);
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.5);
+}
 
 img {
   width: 100%;
@@ -45,9 +44,10 @@ img {
   object-fit: cover;
   transition: all 0.4s;
 }
+
 img:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.8);
 }
 
 h3 {
@@ -64,38 +64,6 @@ p {
   border-radius: 10px;
   padding: 4px 0;
 }
-
-.grass {
-  background: #9bcc50;
-}
-.poison {
-  background: #b97fc9;
-}
-.fire {
-  background: #fd7d24;
-}
-.water {
-  background: #4592c4;
-}
-.flying {
-  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-}
-.bug {
-  background: #729f3f;
-}
-/* Normal: #a4acaf
-Eléctrico: #eed535
-Hada: fdb9e9
-Lucha: #d56723
-Psíquico: #f366b9
-Roca: #a38c21
-Hielo: #51c4e7
-Fantasma: #7b62a3
-Acero: #9eb7b8
-Siniestro: #707070
-
-Tierra: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%)
-Dragón: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%) */
 
 @media (max-width: 500px) {
   li {

@@ -5,10 +5,7 @@ import FooterGlobal from './components/FooterGlobal.vue'
 </script>
 
 <template>
-  <HeaderGlobal textHOne="POKEMONS" />
+  <HeaderGlobal textHOne="POKEMONS!" />
   <RouterView />
   <FooterGlobal />
 </template>
-
-<style scoped>
-</style>

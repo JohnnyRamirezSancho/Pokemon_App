@@ -1,5 +1,5 @@
 <script setup>
-import CardIndexVue from '../components/CardIndex.vue'
+import CardIndexVue from "../components/CardIndex.vue";
 import { onBeforeMount } from "vue";
 import { usePokemonStore } from "../stores/store.js";
 
@@ -8,7 +8,7 @@ onBeforeMount(() => {
   getPokemons();
 });
 
-// METHODS
+
 const getPokemons = async () => {
   await pokemonsStore.fetchPokemons();
 };
@@ -18,8 +18,9 @@ const getPokemons = async () => {
   <main>
     <h2>POKEMONS</h2>
     <div id="filtersAndSearch">
-      <div id="search"><a href="#"><img src="../assets/img/icon-search.png" alt="Search" id="iconSearch"></a>
-        <input type="text" id="searchPokemon">
+      <div id="search">
+        <a href="#"><img src="../assets/img/icon-search.png" alt="Search" id="iconSearch"></a>
+        <input type="text" id="searchPokemon" />
       </div>
       <select id="PokemonType">
         <option vale="all">All pokemon's type</option>
@@ -33,9 +34,9 @@ const getPokemons = async () => {
     </div>
     <ul>
       <CardIndexVue
-      v-for="pokemon in pokemonsStore.pokemons"
-      :pokemonObj = pokemon 
-        />
+        v-for="pokemon in pokemonsStore.pokemons"
+        :pokemonObj="pokemon"
+      />
     </ul>
   </main>
 </template>
@@ -47,7 +48,6 @@ main {
 
 h2 {
   font-weight: normal;
-  width: 50%;
   font-size: 48px;
   padding-left: 10px;
   margin-bottom: 20px;
@@ -58,8 +58,8 @@ h2 {
 input,
 select,
 option {
-  background: #2970FE;
-  color: #FFCD02;
+  background: #2970fe;
+  color: #ffcd02;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
   border-radius: 10px;
@@ -86,7 +86,7 @@ option {
 #iconSearch {
   position: absolute;
   top: 7px;
-  right: 15px
+  right: 15px;
 }
 
 ul {
@@ -96,14 +96,13 @@ ul {
   list-style: none;
 }
 
-
-@media (max-width:900px) {
+@media (max-width: 900px) {
   ul {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
   ul {
     grid-template-columns: 1fr 1fr;
   }
@@ -119,10 +118,9 @@ ul {
   h2 {
     text-align: center;
   }
-
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   ul {
     grid-template-columns: 1fr;
   }

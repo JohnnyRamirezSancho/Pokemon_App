@@ -118,18 +118,23 @@ h5 ~ p {
 h5.types ~ p.grass {
   background: #9bcc50;
 }
+
 h5.types ~ p.poison {
   background: #b97fc9;
 }
+
 h5.types ~ p.fire {
   background: #fd7d24;
 }
+
 h5.types ~ p.water {
   background: #4592c4;
 }
+
 h5.types ~ p.flying {
   background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
 }
+
 h5.types ~ p.bug {
   background: #729f3f;
 }
